@@ -1,4 +1,5 @@
 import os
+import json
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import SystemMessage, HumanMessage
@@ -32,9 +33,10 @@ Schema:
     HumanMessage(content="Explain recursion")
 ])
 
-print(response.content)
-
-
-
+try:
+    data = json.loads(response.content)
+    print("Parsed JSON:", data)
+except:
+    print("Invalid JSON — retrying...")
 
 
