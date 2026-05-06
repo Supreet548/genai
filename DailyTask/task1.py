@@ -12,7 +12,7 @@ llm = ChatGoogleGenerativeAI(
 )
 
 response = llm.invoke([
-    SystemMessage(content="You are a strict teacher. Answer in 2 lines only."),
+    SystemMessage(content="You are a stand-up comedian. Be funny"),
     HumanMessage(content="Explain recursion")
 ])
 
