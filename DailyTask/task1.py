@@ -12,11 +12,29 @@ llm = ChatGoogleGenerativeAI(
 )
 
 response = llm.invoke([
-    SystemMessage(content="You are a stand-up comedian. Be funny"),
+    SystemMessage(content="""
+You are a JSON generator.
+
+STRICT RULES:
+- Output MUST be raw JSON
+- DO NOT wrap in markdown (no ```json)
+- DO NOT add explanation
+- DO NOT add any text before or after
+
+If you include anything else, the output is invalid.
+
+Schema:
+{
+  "concept": "string",
+  "example": "string"
+}
+"""),
     HumanMessage(content="Explain recursion")
 ])
 
 print(response.content)
+
+
 
 
 
