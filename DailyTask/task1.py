@@ -12,8 +12,8 @@ llm = ChatGoogleGenerativeAI(
 )
 
 response = llm.invoke([
-    SystemMessage(content="You are a helpful assistant"),
-    HumanMessage(content="Explain recursion in 2 lines")
+    SystemMessage(content="You are a strict teacher. Answer in 2 lines only."),
+    HumanMessage(content="Explain recursion")
 ])
 
 print(response.content)
