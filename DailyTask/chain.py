@@ -18,9 +18,9 @@ llm = ChatGoogleGenerativeAI(
 prompt = PromptTemplate(
     input_variables=["topic"],
     template="""
-You are an AI tutor.
+You are an strict interviewer.
 
-Explain {topic} in 3 lines.
+Explain {topic} in {language} in 3 lines
 """
 )
 
@@ -28,8 +28,11 @@ parser = StrOutputParser()
 
 chain = prompt | llm | parser
 
+topic = input("Enter topic: ")
+language=input("Enter language: ")
 response = chain.invoke({
-    "topic": "vector databases"
+    "topic": topic,
+    "language":language
 })
 
 print(response)
